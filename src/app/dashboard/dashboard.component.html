@@ -1,0 +1,86 @@
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 text-secondary">Dashboard</span>
+      <a href (click)="logout()">
+      <span class="navbar-text text-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+        </svg>
+        Sign Out
+      </span>
+    </a>
+    </div>
+</nav>
+
+<div class="container">
+    <h3 class="mt-5">Overview</h3>
+        <div class="row">
+          <div class="col">
+            <div class="card mt-3">
+                <div class="card-header">
+                    Card Title
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mt-3">
+                <div class="card-header">
+                    Card Title
+                </div>
+                <div class="card-body">
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="userDetails" *ngIf="currentUser; else loggedOut">
+          <h3 class="text-dark">Hi{{ currentUser.username }}</h3>
+          <p class="text-dark">
+            Token :
+            {{ currentUser.accessToken.substring(0, 20) }} ...
+            {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
+          </p>
+        </div>
+
+        <table class="table table-bordered mt-5">
+            <thead>
+              <tr class="table-light text-dark">
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">User Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john_doe</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>John</td>
+                <td>Doe 2</td>
+                <td>john_doe2</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>John </td>
+                <td>Doe 3</td>
+                <td>john_doe3</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+<ng-template #loggedOut>
+  Please Login
+</ng-template>
