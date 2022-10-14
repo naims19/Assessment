@@ -12,6 +12,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 
 import { authInterceptorProviders } from './../_helpers/auth.interceptor';
+import { AuthService } from './_services/auth.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { authInterceptorProviders } from './../_helpers/auth.interceptor';
     ]),
     NgbModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

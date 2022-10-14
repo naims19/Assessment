@@ -35,48 +35,25 @@
                     Card Title
                 </div>
                 <div class="card-body">
-                    <canvas id="myChart2"></canvas>
+                    <canvas id="myChart2">{{chart}}</canvas>
                 </div>
             </div>
           </div>
         </div>
 
-        <div class="userDetails" *ngIf="currentUser; else loggedOut">
-          <h3 class="text-dark">Hi{{ currentUser.username }}</h3>
-          <p class="text-dark">
-            Token :
-            {{ currentUser.accessToken.substring(0, 20) }} ...
-            {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
-          </p>
-        </div>
-
         <table class="table table-bordered mt-5">
             <thead>
               <tr class="table-light text-dark">
-                <th scope="col">#</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">User Name</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john_doe</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>John</td>
-                <td>Doe 2</td>
-                <td>john_doe2</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>John </td>
-                <td>Doe 3</td>
-                <td>john_doe3</td>
+              <tr *ngFor="let user of tableData">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.username}}</td>
               </tr>
             </tbody>
           </table>
